@@ -1,5 +1,6 @@
 ﻿Console.WriteLine("Pressione qualquer tecla para gerar um senha");
 
-var password = PasswordGenarator.GetRandomPassword(12);
+var password = Randomizers.GetRandomPassword(12);
+var rngPassword = Randomizers.RngSecurityRandomizer(12);
 
-Console.WriteLine(password);
+Console.WriteLine($@" password: {password}, RngPassword: {rngPassword}");

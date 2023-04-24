@@ -1,6 +1,7 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography;
+using System.Text;
 
-public static class PasswordGenarator
+public static class Randomizers
 {
     public static string GetRandomPassword(int length)
     {
@@ -17,4 +18,13 @@ public static class PasswordGenarator
 
         return substring.ToString();
     }
+
+    public static string RngSecurityRandomizer(int length)
+    {
+        var rgb = new byte[length];
+        var rngCryptoServiceProvider = new RNGCryptoServiceProvider();
+        rngCryptoServiceProvider.GetBytes(rgb);
+        return Convert.ToBase64String(rgb);
+    }
+
 }
